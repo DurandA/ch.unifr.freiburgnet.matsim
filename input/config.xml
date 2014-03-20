@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE config SYSTEM "http://www.matsim.org/files/dtd/config_v1.dtd"
+	[
+		<!ENTITY OUTBASE "./output">
+		<!ENTITY INBASE  "./input">
+	]
+>
+<!-- Author: Arnaud Durand -->
+<config>
+
+	<!-- ====================================================================== -->
+	<module name="global">
+		<param name="randomSeed" value="5399998864266990000" />
+		<param name="coordinateSystem" value="CH1903_LV03" />
+		<param name="numberOfThreads" value="4" />
+	</module>
+			
+	<!-- ====================================================================== -->
+
+	<module name="network">
+		<param name="inputNetworkFile" value="&INBASE;/freiburg-network.xml" />
+	</module>
+	
+    <module name="plans">
+        <param name="inputPlansFile" value="&INBASE;/freiburg-plans.xml" />
+    </module>
+	
+	<module name="qsim" >
+		<param name="flowCapacityFactor" value="1.0" />
+		<param name="storageCapacityFactor" value="1.0" />
+		<!-- "start/endTime" of MobSim (00:00:00 == take earliest activity time/ run as long as active vehicles exist) -->
+		<param name="startTime" value="00:00:00" />
+		<param name="endTime" value="00:00:00" />
+		<param name="snapshotperiod" value="00:00:10"/> <!-- 00:00:00 means NO snapshot writing -->
+	</module>
+
+
+	<module name="controler">
+		<param name="outputDirectory" value="&OUTBASE;" />
+		<param name="firstIteration" value="0" />
+		<param name="lastIteration" value="1" />		
+		<param name="runId" value="run0" />
+		<param name="routingAlgorithmType" value="Dijkstra" />
+		<param name="mobsim" value="qsim" />
+		<param name="writePlansInterval" value="1" />
+		<param name="snapshotFormat" value=""/>
+		<!-- iterationNumber % writeSnapshotsInterval == 0 defines in which iterations snapshots are written to a file. `0' disables snapshots writing completely -->
+		<param name="writeSnapshotsInterval" value="10" />
+	</module>
+	
+	<module name="scenario" >
+	
+		<!-- Set this parameter to true if households should be used, false if not. -->
+		<param name="useHouseholds" value="false" />
+
+		<!-- Set this parameter to true if knowledge should be used, false if not. -->
+		<param name="useKnowledge" value="false" />
+
+		<!-- Set this parameter to true if lanes should be used, false if not. -->
+		<param name="useLanes" value="false" />
+
+		<!-- Set this parameter to true if roadpricing should be used, false if not. -->
+		<param name="useRoadpricing" value="false" />
+
+		<!-- Set this parameter to true if signal systems should be used, false if not. -->
+		<param name="useSignalsystems" value="false" />
+
+		<!-- Set this parameter to true if transit should be simulated, false if not. -->
+		<param name="useTransit" value="false" />
+
+		<!-- Set this parameter to true if vehicles should be used, false if not. -->
+		<param name="useVehicles" value="false" />
+	</module>
+	
+	
+    <module name="planCalcScore" >
+        <param name="activityType_0"            value="dummy" />
+        <param name="activityTypicalDuration_0" value="12:00:00" />
+		<param name="activityType_1"            value="home" />
+        <param name="activityTypicalDuration_1" value="12:00:00" />
+        <param name="activityType_2"            value="work" />
+        <param name="activityTypicalDuration_2" value="08:00:00" />
+    </module>
+
+    <module name="strategy">
+        <param name="maxAgentPlanMemorySize" value="5" />
+
+        <param name="ModuleProbability_1" value="0.9" />
+        <param name="Module_1" value="ChangeExpBeta" />
+
+        <param name="ModuleProbability_2" value="0.1" />
+        <param name="Module_2" value="ReRoute" />
+    </module>
+	
+	<!-- ====================================================================== -->
+</config>

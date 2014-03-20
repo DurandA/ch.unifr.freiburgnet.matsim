@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE plans SYSTEM "http://www.matsim.org/files/dtd/plans_v4.dtd">
+
+<plans>
+    <person id="1">
+        <plan>
+            <act type="home" x="7.157852" y="46.789232" end_time="07:00:00"  />
+            <leg mode="car"  />
+            <act type="work" x="7.151024" y="46.803262" end_time="18:00:00"  />
+            <leg mode="car"  />
+            <act type="home" x="7.157852" y="46.789232"  />
+        </plan>
+    </person>
+	    <person id="2">
+        <plan>
+            <act type="home" x="7.157852" y="46.789232" end_time="07:00:00"  />
+            <leg mode="car"  />
+            <act type="work" x="7.151024" y="46.803262" end_time="18:00:00"  />
+            <leg mode="car"  />
+            <act type="home" x="7.157852" y="46.789232"  />
+        </plan>
+    </person>
+	    <person id="3">
+        <plan>
+            <act type="home" x="7.157852" y="46.789232" end_time="07:00:00"  />
+            <leg mode="car"  />
+            <act type="work" x="7.151024" y="46.803262" end_time="18:00:00"  />
+            <leg mode="car"  />
+            <act type="home" x="7.157852" y="46.789232"  />
+        </plan>
+    </person>
+	    <person id="4">
+        <plan>
+            <act type="home" x="7.157852" y="46.789232" end_time="07:00:00"  />
+            <leg mode="car"  />
+            <act type="work" x="7.151024" y="46.803262" end_time="18:00:00"  />
+            <leg mode="car"  />
+            <act type="home" x="7.157852" y="46.789232"  />
+        </plan>
+    </person>
+</plans>
