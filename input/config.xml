@@ -22,7 +22,7 @@
 	</module>
 	
     <module name="plans">
-        <param name="inputPlansFile" value="&INBASE;/freiburg-plans.xml" />
+        <param name="inputPlansFile" value="&INBASE;/plans.xml" />
     </module>
 	
 	<module name="qsim" >
